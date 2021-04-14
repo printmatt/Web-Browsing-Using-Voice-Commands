@@ -1,0 +1,50 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="jumbotron" style = "text-align: center; background-color: #6495ED; margin-top: 50px;margin-bottom: 0">
+    <h1>Voice Navigation For Web Browsing</h1>
+    <span style="font-size: 25px"><em>Speech recognition, AI understanding</em></span>
+</div>
+
+<div style="background-color: #DDDDDD;padding: 5%">
+    <div class = "mb-5" >
+    <div style="width: 50%; background-color:#90ee90; border-radius: 20px; padding: 5px;margin-bottom: 20px;">
+        <h4 style="padding: 5px; padding-left: 8px">Navigate To A Website Or Video</h4>
+    </div>
+    
+    <form action="goToWebsite" method="GET" >
+        <input type="hidden" name="record">
+        <button class="btn btn-primary float-end">Speak</button>
+    </form>
+    <div style="font-size: 20px">Transcript: {{data}}</div>
+    </div>
+
+
+    <div class = "mb-5">
+        <div style="width: 50%; background-color:#90ee90; border-radius: 20px; padding: 5px;margin-bottom: 20px;">
+            <h4 style="padding: 5px; padding-left: 8px">Customize A Navigation</h4>
+        </div>
+        <form action="" method="POST" role="form" style="width: 30%; ">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="website_name">When you say: </label>
+                {{ form.site_name }}
+            </div>
+            <div class="form-group">
+                <label for="website_address">You want to go to: </label>
+                {{ form.site_address }}
+            </div>
+            <input type="submit" class="btn btn-primary"></input >
+        </form>
+    </div>
+
+    <div style="width: 50%; background-color:#90ee90; border-radius: 20px; padding: 5px;margin-bottom: 20px;">
+            <h4 style="padding: 5px; padding-left: 8px">NUMBER OF NAVIGATIONS STORED: &emsp;<em>{{ num_sites }}</em></h4>
+        </div>
+   
+
+</div>
+
+
+{% endblock %}

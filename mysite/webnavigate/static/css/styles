@@ -1,0 +1,14 @@
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.jumbotron{
+	text-align: center;
+	background-color: blue;
+}
+
+h1{
+	text-align: center;
+}
